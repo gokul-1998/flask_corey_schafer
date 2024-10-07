@@ -8,14 +8,13 @@ on:
 
 jobs:
   dockerbuild:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Build The Docker Image
       run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
   build-and-test:
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
